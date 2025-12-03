@@ -1,104 +1,162 @@
-# FRA Atlas - Scan • Map • Act
 
-Forest Rights Atlas - A comprehensive web application for digitizing forest rights claims with OCR scanning, interactive mapping, and automated decision support systems.
+<h1 align="center">🌲 FRA Atlas</h1>
+<p align="center">
+  <i>Scan • Map • Act — A Complete Digital System for Forest Rights Claims</i><br>
+  <b>Developed by: Prabhat Kale (CSE-AIML)</b>
+</p>
 
-## 🚀 Features
+<p align="center">
+  <img src="https://img.shields.io/badge/Framework-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/Mapping-Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white" />
+  <img src="https://img.shields.io/badge/OCR-Tesseract.js-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+</p>
 
-- **Scan**: OCR-powered document scanning with Tesseract.js
-- **Map**: Interactive mapping with React Leaflet and clustering
-- **Act**: Automated decision support and QR code generation
+---
 
-## 🛠️ Quick Start
+## 🔗 **Check it Out**
+**Live Demo:** 
 
-### 1. Install Dependencies
+
+---
+
+# 🚀 Overview
+
+**FRA Atlas** is a modern gov-tech web application designed to digitize and streamline **Forest Rights Act (FRA) claim processing** using:
+
+- OCR-powered document scanning  
+- Interactive GIS mapping  
+- Automated decision support  
+- QR-based claim verification  
+- Lightweight Google Sheets backend (no-code friendly)
+
+It is built for **government departments, NGOs, survey teams, and field officers** working on FRA implementation.
+
+---
+
+# 🌟 Core Features
+
+### 🔍 **Scan**
+- Upload PDF/images of claims  
+- Extract text using **Tesseract.js OCR**  
+- Supports voice-based form filling  
+
+### 🗺️ **Map**
+- Plot claims using **React Leaflet**  
+- Clustering for large datasets  
+- District-level heatmaps & risk overlays  
+
+### ⚙️ **Act**
+- Auto-fill structured data  
+- Generate unique QR codes for each claim  
+- Automated suggestions based on NDVI/area/status  
+- View detailed claim sheet with all metadata  
+
+---
+
+# 🛠️ Quick Start
+
+## 1️⃣ Install Dependencies
 ```bash
 npm install
-```
+````
 
-### 2. Configure Backend
-1. Copy `.env.example` to `.env`
-2. Replace `__BACKEND_URL__` in `src/config.js` with your Google Apps Script Web App URL
+## 2️⃣ Configure Backend
 
-### 3. Run Development Server
+1. Copy `.env.example` → `.env`
+2. Replace `__BACKEND_URL__` in `src/config.js` with your **Google Apps Script Web App URL**
+
+## 3️⃣ Start Dev Server
+
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080) to view the application.
+Open **[http://localhost:8080](http://localhost:8080)**
 
-## 📱 2-Minute Demo Script
+---
 
-### Demo Flow (3 clicks: Upload → Submit → See Map + QR)
+# 🎥 2-Minute Demo Flow
 
-1. **Landing Page**: Show hero section with FRA Atlas branding
-2. **Upload Claims**: 
-   - Upload a forest rights document (PDF/image)
-   - Watch OCR extract data automatically
-   - Or use voice input: "Name: Ravi Kumar, Village: Ambeli, District: Udaipur, Area: 2.5 hectares"
-3. **View on Map**: See claims plotted with clustering, risk overlays, and district statistics
-4. **Claim Details**: Click marker to see QR code and decision support suggestions
+### (Three Steps → Upload → Submit → View on Map)
 
-### Key Demo Points
-- **No-code friendly**: Connects directly to Google Sheets backend
-- **Government-ready**: Clean, accessible design following gov-tech standards
-- **Mobile responsive**: Works on tablets and phones for field use
+1. **Landing Page**
+   Clean govt-style UI with FRA Atlas branding
 
-## 🔧 Backend Setup
+2. **Upload Claims**
 
-### Google Apps Script Configuration
+   * Upload a claim form
+   * OCR extracts fields automatically
+   * Or speak:
+     *“Name: Ravi Kumar, Village: Ambeli, Area: 2.5 hectares”*
 
-1. Create a new Google Apps Script project
-2. Set up a Google Sheet with columns: `id`, `name`, `village`, `district`, `area_ha`, `lat`, `lon`, `status`, `created_at`, `scheme_suggestions`, `ndvi_flag`
-3. Deploy as Web App with permissions for anonymous access
-4. Update `BACKEND_URL` in `src/config.js`
+3. **Map View**
 
-### Expected API Endpoints
+   * Clustered claim points
+   * District stats
+   * NDVI flagging
+   * QR for each claim
 
-- `GET /claims` - Returns array of all claims
-- `POST /claims` - Submit new claim (JSON body)
-- `GET /claim/:id` - Get single claim by ID
-- `PATCH /claim/:id` - Update claim status
+---
 
-## 🏗️ Project Structure
+# 🔧 Backend Setup (Google Apps Script)
+
+### Google Sheets Columns
+
+```
+id, name, village, district, area_ha, lat, lon,
+status, created_at, scheme_suggestions, ndvi_flag
+```
+
+### API Endpoints
+
+* **GET /claims** – all claims
+* **POST /claims** – new claim
+* **GET /claim/:id** – single claim
+* **PATCH /claim/:id** – update status
+
+---
+
+# 🧱 Project Structure
 
 ```
 src/
-├── components/          # Reusable components
-├── pages/              # Page components
-├── utils/              # Utility functions
-├── config.js           # Configuration settings
-└── index.css           # Design system & styles
+ ├── components/      # UI components
+ ├── pages/           # Screens & flows
+ ├── utils/           # Helpers
+ ├── config.js        # API config
+ └── index.css        # Styles & design system
 ```
 
-## 🎨 Design System
+---
 
-- **Colors**: Forest green primary (#22C55E), warm orange accent (#F97316)
-- **Typography**: Inter font for clean readability
-- **Style**: Government-tech aesthetic with rounded cards and subtle shadows
+# 🎨 Design System
 
-## 📦 Dependencies
+* **Colors:**
 
-- React + TypeScript
-- React Router for navigation
-- React Leaflet for mapping
-- Tesseract.js for OCR
-- QRCode.react for QR generation
-- Framer Motion for animations
+  * Forest Green `#22C55E`
+  * Warm Orange `#F97316`
+* **Typography:** Inter
+* **Style:**
+  Rounded cards, shadow layers, gov-tech structure
 
-## 🚀 Deployment
+---
 
-### Vercel Deployment
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Update environment variables in Vercel dashboard
-4. Deploy
+# 📦 Dependencies
 
-### Netlify Deployment
-1. Build the project: `npm run build`
-2. Upload `dist` folder to Netlify
-3. Update environment variables
-4. Deploy
+* React + TypeScript
+* React Router
+* React Leaflet
+* Tesseract.js
+* Framer Motion
+* QRCode.react
 
-## 📄 License
+---
 
-MIT License - Built for government and NGO use in forest rights management.
+
+
+# 📜 License
+
+**MIT License** — Free for govt, academic & NGO use.
+
+---
